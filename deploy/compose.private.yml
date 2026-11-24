@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: deploy/Dockerfile.api
+    container_name: livekit-studio-api
+    restart: unless-stopped
+    network_mode: host
+    env_file:
+      - /opt/livekit-studio/api.env
+    volumes:
+      - /opt/livekit-studio/uploads:/app/apps/api/.uploads
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"

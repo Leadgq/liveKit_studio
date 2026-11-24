@@ -121,3 +121,9 @@ npm run build
 接口包括 `POST /api/files`（multipart 字段 `file`）、`GET /api/files/:id`（文件信息）和 `GET /api/files/:id/content`（下载）。独立预览地址为 `/files/:id`。
 
 Vue Office 的包同时包含 Vue 2/3 构建，但部分 peerDependencies 保留旧版声明，因此安装使用 `npm install --legacy-peer-deps`。工程明确引用 `lib/v3` 目录。
+
+## 服务器私人测试部署
+
+当前前后端已部署至 ECS，使用 Docker 运行后端，由 Nginx 提供构建后的前端。服务器入口绑定 `127.0.0.1:8080`，通过 SSH 隧道访问 <http://localhost:18080>。
+
+部署配置、连接命令及服务器目录见 [deploy/README.md](deploy/README.md)。当前继续使用学习模式密钥，等待域名实名认证及备案后，再准备公网 HTTPS 发布。
