@@ -1,0 +1,19 @@
+{
+  "name": "livekit-learning",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB \"npm run dev -w @studio/api\" \"npm run dev -w @studio/web\"",
+    "build": "npm run build --workspaces",
+    "typecheck": "npm run typecheck --workspaces",
+    "certificate:generate": "node scripts/generate-certificate.mjs",
+    "dev:mobile": "npm run dev:mobile -w @studio/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "node-forge": "^1.4.2"
+  }
+}
